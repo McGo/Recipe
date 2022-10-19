@@ -3,3 +3,4 @@ tests/coverage
 .phpunit.result.cache
 .DS_Store
 .idea
+.env
