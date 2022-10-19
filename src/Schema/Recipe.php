@@ -25,14 +25,14 @@ class Recipe
     {
         $instance = new self;
 
-        $instance->name = $recipe->name->getValues();
-        $instance->description = $recipe->description->getValues();
-        $instance->instructions = $recipe->recipeInstructions->getValues();
+        $instance->name = $recipe->name->getFirstValue();
+        $instance->description = $recipe->description->getFirstValue();
+        $instance->instructions = $recipe->recipeInstructions->getFirstValue();
         $instance->images = $recipe->image->getValues();
         $instance->tags = $recipe->recipeCategory->getValues();
-        $instance->prep_time_minutes = $instance->convertDurationToMinutes($recipe->prepTime->getValues());
-        $instance->cook_time_minutes = $instance->convertDurationToMinutes($recipe->cookTime->getValues());
-        $instance->total_time_minutes = $instance->convertDurationToMinutes($recipe->totalTime->getValues());
+        $instance->prep_time_minutes = $instance->convertDurationToMinutes($recipe->prepTime->getFirstValue());
+        $instance->cook_time_minutes = $instance->convertDurationToMinutes($recipe->cookTime->getFirstValue());
+        $instance->total_time_minutes = $instance->convertDurationToMinutes($recipe->totalTime->getFirstValue());
         $instance->servings = $recipe->recipeYield->getValues();
 
         $ingredients = $recipe->recipeIngredient->getValues();
@@ -41,10 +41,7 @@ class Recipe
             $instance->ingredients[] = (new ConvertIngredientText())->execute($candidate);
         }
 
-        dump($instance);
-
         return $instance;
-
     }
 
     public function persistRecipe($create_ingredients = true)
@@ -53,7 +50,6 @@ class Recipe
     }
 
     private function convertDurationToMinutes($duration) {
-        $duration = is_array($duration) ? $duration[0] : $duration;
         preg_match('/P\d+DT(\d+)H(\d+)M/', $duration, $matches);
         if (count($matches) == 3) {
             return $matches[1] * 60 + $matches[2];

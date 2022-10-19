@@ -47,8 +47,8 @@ class ConvertIngredientText
         $recipeIngredient = new RecipeIngredient();
         $recipeIngredient->amount = $this->amount;
         $recipeIngredient->addition = $this->addition;
-        $recipeIngredient->setUnit($this->unit);
-        $recipeIngredient->setIngredient($this->ingredient);
+        $recipeIngredient->setUnit($this->unit, $this->unit_model);
+        $recipeIngredient->setIngredient($this->ingredient, $this->ingredient_model);
 
         return $recipeIngredient;
     }
