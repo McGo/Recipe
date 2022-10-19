@@ -1,0 +1,32 @@
+{
+  "name": "mcgo/recipe",
+  "description": "Laravel package to parse and store recipes with ingredients and nutrition information",
+  "authors": [
+    {
+      "name": "Mirko Haaser",
+      "email": "kontakt@mirko-haaser.de"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "ext-json": "*",
+    "php": "8.1.*",
+    "brick/schema": "^0.1.1"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^7.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "McGo\\Recipe\\": "src/",
+      "McGo\\Recipe\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "McGo\\Recipe\\RecipeServiceProvider"
+      ]
+    }
+  }
+}
