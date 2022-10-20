@@ -158,6 +158,10 @@ return new class extends Migration {
             'name'=> 'mg',
             'in_g' => .001
         ]);
+        \McGo\Recipe\Models\Unit::create([
+            'name'=> 'Handvoll',
+            'in_g' => 75
+        ]);
 
         // Special things that could not be weight
         \McGo\Recipe\Models\Unit::create(['name'=> 'Prise']);
