@@ -34,8 +34,8 @@ return new class extends Migration {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
             $table->text('description')->nullable();
-            $table->string('ingredient_type')->nullable();
-            $table->bigInteger('ingredient_id')->unsigned()->nullable();
+            $table->string('ingredienttype_type')->nullable();
+            $table->bigInteger('ingredienttype_id')->unsigned()->nullable();
         });
         Schema::create('mcgo_recipe_recipe_ingredients', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -96,6 +96,32 @@ return new class extends Migration {
             $table->decimal('min_jod_g', 8,4)->nullable()->unsigned();
 
             $table->unique(['nutriable_type', 'nutriable_id']);
+        });
+
+        Schema::create('mcgo_recipe_ingredienttype_food', function (Blueprint $table) {
+            $table->bigIncrements('id');
+        });
+        Schema::create('mcgo_recipe_ingredienttype_nourishment', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->integer('ean_code')->nullable();
+        });
+        Schema::create('mcgo_recipe_ingredientfood_season', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('food_id');
+            $table->string('country_code')->default('de');
+            $table->integer('season_january')->default(0);
+            $table->integer('season_february')->default(0);
+            $table->integer('season_march')->default(0);
+            $table->integer('season_april')->default(0);
+            $table->integer('season_may')->default(0);
+            $table->integer('season_june')->default(0);
+            $table->integer('season_july')->default(0);
+            $table->integer('season_august')->default(0);
+            $table->integer('season_september')->default(0);
+            $table->integer('season_october')->default(0);
+            $table->integer('season_november')->default(0);
+            $table->integer('season_december')->default(0);
+
         });
 
         $this->generateDefaultUnits();

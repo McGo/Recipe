@@ -37,6 +37,7 @@ class Recipe
 
         $ingredients = $recipe->recipeIngredient->getValues();
         $instance->ingredients = [];
+
         foreach ($ingredients as $candidate) {
             $instance->ingredients[] = (new ConvertIngredientText())->execute($candidate);
         }
