@@ -95,7 +95,7 @@ return new class extends Migration {
             $table->decimal('min_kupfer_g', 8,4)->nullable()->unsigned();
             $table->decimal('min_jod_g', 8,4)->nullable()->unsigned();
 
-            $table->unique(['nutriable_type', 'nutriable_id']);
+            $table->unique(['nutriable_type', 'nutriable_id'], 'unique_nutriable');
         });
 
         Schema::create('mcgo_recipe_ingredienttype_food', function (Blueprint $table) {
