@@ -65,7 +65,7 @@ class ConvertIngredientText
                 return;
             }
         }
-        $units_to_ignore = ['m.-große', '.-große', 'kleine', 'große', 'mittelgroße'];
+        $units_to_ignore = ['m.-große', '.-große', 'kleine', 'große', 'mittelgroße', 'Stk', 'Stück', 'Stk.', 'Spr', 'Spritzer', 'Spr.'];
         foreach ($units_to_ignore as $candidate) {
             $pos = strpos($this->original, ' '.$candidate.' ');
             if ($pos) {
@@ -95,7 +95,7 @@ class ConvertIngredientText
                 $this->amount_length = 2;
             }
 
-            if (in_array($amount_candidate, ['etwas', 'n.B.'])) {
+            if (in_array($amount_candidate, ['etwas', 'n.B.', 'Schuss', 'wenig'])) {
                 // Only set the length to ignore the unsuable amount candidates
                 $this->amount_length = strlen($amount_candidate);
                 $this->additions[] = $amount_candidate;
