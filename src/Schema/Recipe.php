@@ -45,10 +45,6 @@ class Recipe
         return $instance;
     }
 
-    public function persistRecipe($create_ingredients = true)
-    {
-
-    }
 
     private function convertDurationToMinutes($duration) {
         preg_match('/P\d+DT(\d+)H(\d+)M/', $duration, $matches);

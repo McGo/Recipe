@@ -142,6 +142,10 @@ return new class extends Migration {
             'in_g' => 1000
         ]);
         \McGo\Recipe\Models\Unit::create([
+            'name'=> 'Liter',
+            'in_g' => 1000
+        ]);
+        \McGo\Recipe\Models\Unit::create([
             'name'=> 'ml',
             'in_g' => 1
         ]);
