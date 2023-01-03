@@ -70,7 +70,7 @@ class CreateRecipeModelFromSchema
             $unit_id = is_null($recipe_ingredient->unit_model) ? null : $recipe_ingredient->unit_model->id;
 
             Models\RecipeIngredient::create([
-                'recipe_id', $this->model->id,
+                'recipe_id' => $this->model->id,
                 'unit_id' => $unit_id,
                 'ingredient_id' => $ingredient_id,
                 'amount' => $recipe_ingredient->amount,

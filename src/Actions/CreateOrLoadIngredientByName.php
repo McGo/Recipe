@@ -14,8 +14,8 @@ class CreateOrLoadIngredientByName
             $ingredient_type = $type::create($typeattributes);
             $ingredient = Ingredient::create([
                 'name' => $name,
-                'ingredient_type' => get_class($ingredient_type),
-                'ingredient_id' => $ingredient_type->id,
+                'ingredienttype_type' => get_class($ingredient_type),
+                'ingredienttype_id' => $ingredient_type->id,
             ]);
         }
         return $ingredient;
