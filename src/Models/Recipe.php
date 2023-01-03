@@ -8,5 +8,5 @@ class Recipe extends Model
 {
     public $timestamps = false;
     protected $table = 'mcgo_recipe_recipes';
-
+    protected $guarded = [];
 }

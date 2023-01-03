@@ -8,5 +8,5 @@ class NutritionInformation extends Model
 {
     public $timestamps = false;
     protected $table = 'mcgo_recipe_nutrition_informations';
-
+    protected $guarded = [];
 }

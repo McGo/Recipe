@@ -8,6 +8,7 @@ class Ingredient extends Model
 {
     public $timestamps = false;
     protected $table = 'mcgo_recipe_ingredients';
+    protected $guarded = [];
 
     /**
      * Each Ingredient is attached to an ingredienttype.

@@ -8,6 +8,7 @@ class Food extends IsIngredientType
 {
     protected $table = 'mcgo_recipe_ingredienttype_food';
     public $timestamps = false;
+    protected $guarded = [];
 
     public function seasons()
     {

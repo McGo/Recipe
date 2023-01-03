@@ -8,6 +8,8 @@ class RecipeIngredient extends Pivot
 {
     public $timestamps = false;
     protected $table = 'mcgo_recipe_recipe_ingredients';
+    protected $guarded = [];
+
     // Amount is attribute
     // addition is attribute
 

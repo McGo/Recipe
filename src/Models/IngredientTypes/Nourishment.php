@@ -6,4 +6,5 @@ class Nourishment extends IsIngredientType
 {
     protected $table = 'mcgo_recipe_ingredienttype_nourishment';
     public $timestamps = false;
+    protected $guarded = [];
 }
