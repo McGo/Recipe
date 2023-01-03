@@ -10,7 +10,7 @@
   "minimum-stability": "stable",
   "require": {
     "ext-json": "*",
-    "php": "8.1.*",
+    "php": "^8.1",
     "brick/schema": "^0.1.1",
     "wamania/php-stemmer": "^3.0"
   },
