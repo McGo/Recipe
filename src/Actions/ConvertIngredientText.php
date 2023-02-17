@@ -13,6 +13,7 @@ use Wamania\Snowball\StemmerFactory;
 
 /**
  * Converts a given text to ingredients with unit, amount, ingredient and additional information.
+ * @deprecated
  */
 class ConvertIngredientText
 {
