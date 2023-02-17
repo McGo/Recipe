@@ -19,6 +19,7 @@ class IngredientNutritionInformationDTO
         $_clone = clone $dto;
         if (!is_null($dto->values_per_g) && $dto->values_per_g > 0) {
             $_faktor = $gramm / $dto->values_per_g;
+            $_clone->values_per_g = $dto->values_per_g * $_faktor;
             $_clone->eiweiss_g = $dto->eiweiss_g * $_faktor;
             $_clone->fett_g = $dto->fett_g * $_faktor;
             $_clone->kohlenhydrate_g = $dto->kohlenhydrate_g * $_faktor;
