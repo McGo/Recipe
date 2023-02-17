@@ -19,4 +19,9 @@ class Ingredient extends Model
     {
         return $this->morphTo();
     }
+
+    public function alternatives()
+    {
+        return $this->hasMany(IngredientAlternative::class, 'ingredient_id');
+    }
 }
