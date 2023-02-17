@@ -47,14 +47,14 @@ return new class extends Migration {
         Schema::create('mcgo_recipe_units', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable();
-            $table->decimal('in_g',8,4)->unsigned()->default(0);
+            $table->decimal('in_g', 8, 4)->unsigned()->default(0);
             $table->text('description')->nullable();
         });
         Schema::create('mcgo_recipe_ingredient_unit_weights', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('unit_id')->nullable()->unsigned();
             $table->bigInteger('ingredient_id')->nullable()->unsigned();
-            $table->decimal('in_g',8,4)->unsigned()->default(0);
+            $table->decimal('in_g', 8, 4)->unsigned()->default(0);
         });
         Schema::create('mcgo_recipe_nutrition_informations', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -74,26 +74,26 @@ return new class extends Migration {
             $table->decimal('ballaststoffe_g')->nullable()->unsigned();
 
             // Vitamine
-            $table->decimal('vitamin_c_mg', 8,4)->nullable()->unsigned();
-            $table->decimal('vitamin_a_mg', 8,4)->nullable()->unsigned();
-            $table->decimal('vitamin_e_mg', 8,4)->nullable()->unsigned();
-            $table->decimal('vitamin_b1_mg', 8,4)->nullable()->unsigned();
-            $table->decimal('vitamin_b2_mg', 8,4)->nullable()->unsigned();
-            $table->decimal('vitamin_b6_mg', 8,4)->nullable()->unsigned();
-            $table->decimal('vitamin_b12_mg', 8,4)->nullable()->unsigned();
+            $table->decimal('vitamin_c_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_a_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_e_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_b1_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_b2_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_b6_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_b12_mg', 8, 4)->nullable()->unsigned();
 
             // Mineralstoffe
-            $table->decimal('min_natrium_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_eisen_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_zink_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_magnesium_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_chlorid_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_mangan_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_kalium_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_kalzium_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_phosphor_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_kupfer_g', 8,4)->nullable()->unsigned();
-            $table->decimal('min_jod_g', 8,4)->nullable()->unsigned();
+            $table->decimal('min_natrium_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_eisen_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_zink_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_magnesium_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_chlorid_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_mangan_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_kalium_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_kalzium_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_phosphor_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_kupfer_g', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_jod_g', 8, 4)->nullable()->unsigned();
 
             $table->unique(['nutriable_type', 'nutriable_id'], 'unique_nutriable');
         });
@@ -103,7 +103,8 @@ return new class extends Migration {
         });
         Schema::create('mcgo_recipe_ingredienttype_nourishment', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('ean_code')->nullable();
+            $table->bigInteger('ean_code')->unsigned()->nullable();
+            $table->string('image')->nullable();
         });
         Schema::create('mcgo_recipe_ingredientfood_season', function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -127,52 +128,53 @@ return new class extends Migration {
         $this->generateDefaultUnits();
     }
 
-    public function generateDefaultUnits() {
+    public function generateDefaultUnits()
+    {
         \McGo\Recipe\Models\Unit::create([
-            'name'=> 'EL',
+            'name' => 'EL',
             'in_g' => 15
         ]);
         \McGo\Recipe\Models\Unit::create([
-            'name'=> 'TL',
+            'name' => 'TL',
             'in_g' => 5
         ]);
 
         \McGo\Recipe\Models\Unit::create([
-            'name'=> 'l',
+            'name' => 'l',
             'in_g' => 1000
         ]);
         \McGo\Recipe\Models\Unit::create([
-            'name'=> 'Liter',
+            'name' => 'Liter',
             'in_g' => 1000
         ]);
         \McGo\Recipe\Models\Unit::create([
-            'name'=> 'ml',
+            'name' => 'ml',
             'in_g' => 1
         ]);
 
         \McGo\Recipe\Models\Unit::create([
-            'name'=> 'kg',
+            'name' => 'kg',
             'in_g' => 1000
         ]);
         \McGo\Recipe\Models\Unit::create([
-            'name'=> 'g',
+            'name' => 'g',
             'in_g' => 1
         ]);
         \McGo\Recipe\Models\Unit::create([
-            'name'=> 'mg',
+            'name' => 'mg',
             'in_g' => .001
         ]);
         \McGo\Recipe\Models\Unit::create([
-            'name'=> 'Handvoll',
+            'name' => 'Handvoll',
             'in_g' => 75
         ]);
 
         // Special things that could not be weight
-        \McGo\Recipe\Models\Unit::create(['name'=> 'Prise']);
-        \McGo\Recipe\Models\Unit::create(['name'=> 'Pck.']);
-        \McGo\Recipe\Models\Unit::create(['name'=> 'Pck']);
-        \McGo\Recipe\Models\Unit::create(['name'=> 'Packung']);
-        \McGo\Recipe\Models\Unit::create(['name'=> 'Paket']);
-        \McGo\Recipe\Models\Unit::create(['name'=> 'Becher']);
+        \McGo\Recipe\Models\Unit::create(['name' => 'Prise']);
+        \McGo\Recipe\Models\Unit::create(['name' => 'Pck.']);
+        \McGo\Recipe\Models\Unit::create(['name' => 'Pck']);
+        \McGo\Recipe\Models\Unit::create(['name' => 'Packung']);
+        \McGo\Recipe\Models\Unit::create(['name' => 'Paket']);
+        \McGo\Recipe\Models\Unit::create(['name' => 'Becher']);
     }
 };
