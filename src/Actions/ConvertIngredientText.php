@@ -2,13 +2,11 @@
 
 namespace McGo\Recipe\Actions;
 
-use Illuminate\Support\Collection;
 use McGo\Recipe\Exceptions\NoIngredientFoundException;
 use McGo\Recipe\Models\Ingredient;
 use McGo\Recipe\Models\IngredientAlternative;
 use McGo\Recipe\Models\Unit;
 use McGo\Recipe\Schema\RecipeIngredient;
-use Wamania\Snowball\StemmerFactory;
 
 
 /**
