@@ -104,6 +104,7 @@ return new class extends Migration {
         Schema::create('mcgo_recipe_ingredienttype_nourishment', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('ean_code')->unsigned()->nullable();
+            $table->string('brand')->nullable();
             $table->string('image')->nullable();
         });
         Schema::create('mcgo_recipe_ingredientfood_season', function (Blueprint $table) {
