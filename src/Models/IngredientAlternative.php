@@ -12,6 +12,7 @@ class IngredientAlternative extends Model
     protected $table = 'mcgo_recipe_ingredient_alternatives';
     protected $fillable = ['name', 'description', 'ingredient_id'];
     public $timestamps = false;
+    protected $touches = ['ingredient'];
 
     public function ingredient()
     {
