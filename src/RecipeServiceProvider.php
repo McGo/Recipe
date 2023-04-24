@@ -3,6 +3,8 @@
 namespace McGo\Recipe;
 
 use Illuminate\Support\ServiceProvider;
+use McGo\Recipe\Models\Recipe;
+use McGo\Recipe\Observers\CreateSlugForRecipe;
 
 class RecipeServiceProvider extends ServiceProvider
 {
@@ -13,6 +15,7 @@ class RecipeServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Recipe::observe(CreateSlugForRecipe::class);
     }
 
     /**
