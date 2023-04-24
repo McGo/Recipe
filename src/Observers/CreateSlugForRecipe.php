@@ -14,7 +14,11 @@ class CreateSlugForRecipe
 
     private function createUniqueSlugForRecipe(Recipe $recipe, $attempt = null): string
     {
-        $nameslug = Str::slug($recipe->title);
+        $nameslug = Str::slug($recipe->name);
+
+        if ($nameslug == '') {
+            $nameslug = $recipe->id;
+        }
         if (! is_null($attempt)) {
             $nameslug .= '-'.$attempt;
             $next_attempt = $attempt + 1;
@@ -25,7 +29,7 @@ class CreateSlugForRecipe
         $exists = Recipe::where('slug', '=', $nameslug)
             ->where('id', '!=', $recipe->id)
             ->first();
-        if (is_null($exists)) {
+        if (! is_null($exists)) {
             return $this->createUniqueSlugForRecipe($recipe, $next_attempt);
         }
 
