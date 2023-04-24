@@ -28,4 +28,9 @@ class Ingredient extends Model
     {
         return $this->hasMany(IngredientAlternative::class, 'ingredient_id');
     }
+
+    public function category()
+    {
+        return $this->belongsTo(IngredientCategory::class, 'category_id');
+    }
 }
