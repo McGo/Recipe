@@ -23,7 +23,7 @@ class RecipeDefaultDataSeeder extends Seeder
     {
         $units = $this->getUnitDefinitions();
         foreach ($units as $_name => $_in_g) {
-            Unit::createOrUpdate(['name' => $_name], ['in_g' => $_in_g]);
+            Unit::updateOrCreate(['name' => $_name], ['in_g' => $_in_g]);
         }
     }
 
