@@ -11,24 +11,33 @@ trait IngredientCategoryDefinition
     public function getIngredientCategoryDefinitions(): array
     {
         return [
-            'food' => $this->getFoods(),
+            'Fleisch, Wurst, Fisch und Ei' => [
+                'Fleisch und Fleischerzeugnisse',
+                'Fisch und Fischerzeugnisse',
+                'Wildfleisch und Wildfleischerzeugnisse',
+                'Eier und Eiprodukte',
+                'Tofu, Sofaprodukte und Vergleichbares'
+            ],
+            'Milch, Milcherzeugnisse & Käse' => [
+                'Milch',
+                'Milcherzeugniss',
+                'Käse'
+            ],
+            'Brot, Getreide und Beilagen' => [
+                'Getreide & Getreideerzeugnisse',
+                'Hülsenfrüchte'
+            ],
+            'Öle und Fette' => [],
+            'Obst, Gemüse und Salat' => [
+                'Obst',
+                'Gemüse',
+                'Kräuter',
+                'Pilze und Pilzerzeugnisse',
+                'Nüsse und Samen'
+            ],
+            'Getränke' => [],
+            'Gewürze, Würzmittel und Aromen' => [],
+            'Verarbeitete Lebensmittel' => [],
         ];
-    }
-
-    private function getFoods(): array
-    {
-        $data = [];
-
-        $data[] = Food::name('Tomaten')
-            ->inCategory('Obst & Gemüse')
-            ->addBreed(Breed::name('Cherrytomaten')->addAlternative('Kirschtomaten'))
-            ->addBreed(Breed::name('Strauchtomate'))
-            ->addBreed(Breed::name('Fleischtomaten'));
-
-        $data[] = Food::name('Gurken')
-            ->inCategory('Obst & Gemüse')
-            ->addAlternative('Salatgurke');
-
-        return $data;
     }
 }

@@ -2,31 +2,34 @@
 
 namespace McGo\Recipe\Traits;
 
+use McGo\Recipe\DataTransferObjects\DefaultSeeder\Breed;
+use McGo\Recipe\DataTransferObjects\DefaultSeeder\Food;
+
 trait IngredientDefinition
 {
     public function getIngredientDefinitions(): array
     {
+
         return [
-            'Babynahrung',
-            'Eier & Eiprodukte',
-            'Feinkosterzeugnisse',
-            'Fleisch & Fleischerzeugnisse',
-            'Fisch & Fischerzeugnisse',
-            'Getränke',
-            'Getreide & Getreideerzeugnisse',
-            'Gewürze, Würzmittel & Aromen',
-            'Honig',
-            'Kräuter',
-            'Milch, Milcherzeugnisse & Käse',
-            'Nahrungsergänzungsmittel',
-            'Nüsse & Samen',
-            'Öle & Fette',
-            'Obst & Gemüse',
-            'Pilze & Pilzerzeugnisse',
-            'Speiseeis',
-            'Süßwaren',
-            'Vegetarische & vegane Erzeugnisse',
-            'Wildfleisch & Wildfleischerzeugnisse',
+            'food' => $this->getFoods(),
         ];
+    }
+
+    private function getFoods(): array
+    {
+        $data = [];
+
+        $data[] = Food::name('Tomaten')
+            ->inCategory('Obst & Gemüse')
+            ->addBreed(Breed::name('Cherrytomaten')->addAlternative('Kirschtomaten'))
+            ->addBreed(Breed::name('Strauchtomate'))
+            ->addBreed(Breed::name('Fleischtomaten'));
+
+        $data[] = Food::name('Gurken')
+            ->inCategory('Obst & Gemüse')
+            ->addAlternative('Salatgurke');
+
+        return $data;
+
     }
 }

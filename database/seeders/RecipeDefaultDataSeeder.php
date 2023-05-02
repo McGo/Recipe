@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use McGo\Recipe\Models\IngredientCategory;
 use McGo\Recipe\Models\Unit;
 use McGo\Recipe\Traits\IngredientCategoryDefinition;
 use McGo\Recipe\Traits\IngredientDefinition;
@@ -30,6 +31,12 @@ class RecipeDefaultDataSeeder extends Seeder
     private function integrateIngredientCategories()
     {
         $categories = $this->getIngredientCategoryDefinitions();
+        foreach ($categories as $category => $children) {
+            $_parent = IngredientCategory::updateOrCreate(['name' => $category]);
+            foreach ($children as $child) {
+                $_parent = IngredientCategory::updateOrCreate(['name' => $category], ['parent_id' => $_parent->id]);
+            }
+        }
 
     }
 
