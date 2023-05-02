@@ -9,10 +9,7 @@ trait IngredientDefinition
 {
     public function getIngredientDefinitions(): array
     {
-
-        return [
-            'food' => $this->getFoods(),
-        ];
+        return $this->getFoods();
     }
 
     private function getFoods(): array
@@ -24,6 +21,15 @@ trait IngredientDefinition
             ->addBreed(Breed::name('Cherrytomaten')->addAlternative('Kirschtomaten'))
             ->addBreed(Breed::name('Strauchtomate'))
             ->addBreed(Breed::name('Fleischtomaten'));
+
+        $gewuerze = [
+            'Kerbel', 'Rosmarin', 'Oregano', 'Dill', 'Basilikum', 'Petersilie', 'Minze', 'Thymian', 'Salbei', 'Majoran',
+            'Bohnenkraut', 'Estragon'
+        ];
+        foreach ($gewuerze as $item) {
+            $data[] = Food::name($item)
+                ->inCategory('Kräuter');
+        }
 
         $data[] = Food::name('Gurken')
             ->inCategory('Gemüse')
