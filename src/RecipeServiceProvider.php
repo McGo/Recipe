@@ -19,6 +19,10 @@ class RecipeServiceProvider extends ServiceProvider
     {
         Recipe::observe(CreateSlugForRecipe::class);
         Ingredient::observe(CreateSlugForIngredient::class);
+
+        $this->publishes([
+            __DIR__.'/../database/seeders/' => database_path('seeders')
+        ], 'seeders');
     }
 
     /**
