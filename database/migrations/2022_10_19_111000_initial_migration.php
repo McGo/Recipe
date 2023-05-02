@@ -126,56 +126,6 @@ return new class extends Migration {
 
         });
 
-        $this->generateDefaultUnits();
     }
 
-    public function generateDefaultUnits()
-    {
-        \McGo\Recipe\Models\Unit::create([
-            'name' => 'EL',
-            'in_g' => 15
-        ]);
-        \McGo\Recipe\Models\Unit::create([
-            'name' => 'TL',
-            'in_g' => 5
-        ]);
-
-        \McGo\Recipe\Models\Unit::create([
-            'name' => 'l',
-            'in_g' => 1000
-        ]);
-        \McGo\Recipe\Models\Unit::create([
-            'name' => 'Liter',
-            'in_g' => 1000
-        ]);
-        \McGo\Recipe\Models\Unit::create([
-            'name' => 'ml',
-            'in_g' => 1
-        ]);
-
-        \McGo\Recipe\Models\Unit::create([
-            'name' => 'kg',
-            'in_g' => 1000
-        ]);
-        \McGo\Recipe\Models\Unit::create([
-            'name' => 'g',
-            'in_g' => 1
-        ]);
-        \McGo\Recipe\Models\Unit::create([
-            'name' => 'mg',
-            'in_g' => .001
-        ]);
-        \McGo\Recipe\Models\Unit::create([
-            'name' => 'Handvoll',
-            'in_g' => 75
-        ]);
-
-        // Special things that could not be weight
-        \McGo\Recipe\Models\Unit::create(['name' => 'Prise']);
-        \McGo\Recipe\Models\Unit::create(['name' => 'Pck.']);
-        \McGo\Recipe\Models\Unit::create(['name' => 'Pck']);
-        \McGo\Recipe\Models\Unit::create(['name' => 'Packung']);
-        \McGo\Recipe\Models\Unit::create(['name' => 'Paket']);
-        \McGo\Recipe\Models\Unit::create(['name' => 'Becher']);
-    }
 };

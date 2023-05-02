@@ -1,0 +1,32 @@
+<?php
+
+namespace McGo\Recipe\Traits;
+
+trait IngredientDefinition
+{
+    public function getIngredientDefinitions(): array
+    {
+        return [
+            'Babynahrung',
+            'Eier & Eiprodukte',
+            'Feinkosterzeugnisse',
+            'Fleisch & Fleischerzeugnisse',
+            'Fisch & Fischerzeugnisse',
+            'Getränke',
+            'Getreide & Getreideerzeugnisse',
+            'Gewürze, Würzmittel & Aromen',
+            'Honig',
+            'Kräuter',
+            'Milch, Milcherzeugnisse & Käse',
+            'Nahrungsergänzungsmittel',
+            'Nüsse & Samen',
+            'Öle & Fette',
+            'Obst & Gemüse',
+            'Pilze & Pilzerzeugnisse',
+            'Speiseeis',
+            'Süßwaren',
+            'Vegetarische & vegane Erzeugnisse',
+            'Wildfleisch & Wildfleischerzeugnisse',
+        ];
+    }
+}
