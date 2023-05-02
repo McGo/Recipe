@@ -42,5 +42,8 @@ class RecipeDefaultDataSeeder extends Seeder
     private function integrateIngredients()
     {
         $ingredients = $this->getIngredientDefinitions();
+        foreach ($ingredients as $ingredient) {
+            $ingredient->persist();
+        }
     }
 }
