@@ -19,13 +19,13 @@ trait UnitDefinition
             'mg' => .001,
             'Handvoll' => 75,
 
-            'Prise' => null,
-            'Pck.' => null,
-            'Pck' => null,
-            'Packung' => null,
-            'Paket' => null,
-            'Becher' => null,
-            'nach Belieben' => null,
+            'Prise' => 0,
+            'Pck.' => 0,
+            'Pck' => 0,
+            'Packung' => 0,
+            'Paket' => 0,
+            'Becher' => 0,
+            'nach Belieben' => 0,
         ];
     }
 }
