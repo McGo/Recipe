@@ -20,14 +20,30 @@ trait IngredientDefinition
         $data = [];
 
         $data[] = Food::name('Tomaten')
-            ->inCategory('Obst & Gemüse')
+            ->inCategory('Gemüse')
             ->addBreed(Breed::name('Cherrytomaten')->addAlternative('Kirschtomaten'))
             ->addBreed(Breed::name('Strauchtomate'))
             ->addBreed(Breed::name('Fleischtomaten'));
 
         $data[] = Food::name('Gurken')
-            ->inCategory('Obst & Gemüse')
+            ->inCategory('Gemüse')
             ->addAlternative('Salatgurke');
+
+        $data[] = Food::name('Essig')
+            ->inCategory('Gewürze, Würzmittel und Aromen')
+            ->addBreed(Breed::name('Apfelessig'))
+            ->addBreed(Breed::name('Balsamico')->addAlternative('Balsamicoessig'));
+
+        $data[] = Food::name('Brühe')
+            ->inCategory('Gewürze, Würzmittel und Aromen')
+            ->addBreed(Breed::name('Gemüsebrühe'))
+            ->addBreed(Breed::name('Hühnerbrühe'))
+            ->addBreed(Breed::name('Rinderbrühe'));
+
+        $data[] = Food::name('Fonds')
+            ->inCategory('Gewürze, Würzmittel und Aromen')
+            ->addBreed(Breed::name('Gemüsefonds'))
+            ->addBreed(Breed::name('Kalbsfonds'));
 
         return $data;
 
