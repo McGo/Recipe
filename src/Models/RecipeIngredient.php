@@ -2,16 +2,17 @@
 
 namespace McGo\Recipe\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use McGo\Recipe\Factories\RecipeIngredientFactory;
 
 class RecipeIngredient extends Pivot
 {
+    use HasFactory;
+
     public $timestamps = false;
     protected $table = 'mcgo_recipe_recipe_ingredients';
     protected $guarded = [];
-
-    // Amount is attribute
-    // addition is attribute
 
     public function ingredient()
     {
@@ -24,5 +25,10 @@ class RecipeIngredient extends Pivot
     public function recipe()
     {
         return $this->belongsTo(Recipe::class);
+    }
+
+    public static function newFactory()
+    {
+        return new RecipeIngredientFactory();
     }
 }

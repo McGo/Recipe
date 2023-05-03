@@ -11,19 +11,6 @@ class RecipeBaseTestClass extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * @return void
-     * @throws \McGo\Recipe\Exceptions\NoRecipeAtURLFoundException
-     * @test
-     */
-    public function it_works()
-    {
-
-        $url = "https://www.chefkoch.de/rezepte/1230931228138185/Puszta-Carbonara.html";
-
-        $recipe = ParseRecipe::fromURL($url);
-
-    }
     public function getSampleRecipesFolder()
     {
         return __DIR__ . '/Mocks/Recipes/';
