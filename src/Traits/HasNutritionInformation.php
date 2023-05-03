@@ -2,7 +2,6 @@
 
 namespace McGo\Recipe\Traits;
 
-use McGo\Recipe\Models\Ingredient;
 use McGo\Recipe\Models\NutritionInformation;
 
 trait HasNutritionInformation
