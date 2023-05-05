@@ -2,12 +2,14 @@
 
 namespace McGo\Recipe\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use McGo\Recipe\Factories\IngredientFactory;
 use McGo\Recipe\Traits\HasNutritionInformation;
 
 class Ingredient extends Model
 {
-    use HasNutritionInformation;
+    use HasNutritionInformation, HasFactory;
 
     public $timestamps = false;
     protected $table = 'mcgo_recipe_ingredients';
@@ -15,7 +17,7 @@ class Ingredient extends Model
 
     /**
      * Each Ingredient is attached to an ingredienttype.
-     * 
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function ingredienttype()
@@ -32,5 +34,10 @@ class Ingredient extends Model
     public function category()
     {
         return $this->belongsTo(IngredientCategory::class, 'category_id');
+    }
+
+    public static function newFactory()
+    {
+        return new IngredientFactory();
     }
 }
