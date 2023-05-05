@@ -34,7 +34,7 @@ class RecipeDefaultDataSeeder extends Seeder
         foreach ($categories as $category => $children) {
             $_parent = IngredientCategory::updateOrCreate(['name' => $category], ['parent_id' => null]);
             foreach ($children as $child) {
-                $_parent = IngredientCategory::updateOrCreate(['name' => $child], ['parent_id' => $_parent->id]);
+                IngredientCategory::updateOrCreate(['name' => $child], ['parent_id' => $_parent->id]);
             }
         }
     }
