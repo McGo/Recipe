@@ -18,6 +18,7 @@ class IngredientResource extends JsonResource
             'name' => $this->name,
             'slug' => $this->slug,
             'description' => $this->description,
+            '_type' => 'Ingredient',
         ];
     }
 }

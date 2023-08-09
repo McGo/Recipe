@@ -14,7 +14,8 @@ class RecipeResource  extends JsonResource
             'status' => $this->status,
             'name' => $this->name,
             'description' => $this->description,
-            'ingredients' => $this->whenLoaded('ingredients')
+            'ingredients' => $this->whenLoaded('ingredients'),
+            '_type' => 'Recipe',
         ];
     }
 }
