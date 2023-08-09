@@ -63,37 +63,50 @@ return new class extends Migration {
 
             $table->decimal('values_per_g')->default(100)->unsigned();
 
-            $table->decimal('calories')->nullable()->unsigned();
+            $table->decimal('energy_kcal')->nullable()->unsigned();
+            $table->decimal('energy_kj')->nullable()->unsigned();
+            $table->decimal('energy_kcal_per_g')->nullable()->unsigned();
 
             // Makro
-            $table->decimal('fett_g')->nullable()->unsigned();
-            $table->decimal('kohlenhydrate_g')->nullable()->unsigned();
-            $table->decimal('zucker_g')->nullable()->unsigned();
             $table->decimal('eiweiss_g')->nullable()->unsigned();
 
-            $table->decimal('ballaststoffe_g')->nullable()->unsigned();
+            $table->decimal('fett_gesamt_g')->nullable()->unsigned();
+            $table->decimal('fett_gfs_g')->nullable()->unsigned();
+            $table->decimal('fett_eufs_g')->nullable()->unsigned();
+            $table->decimal('fett_mufs_g')->nullable()->unsigned();
+            $table->decimal('fett_chol_mg')->nullable()->unsigned();
+
+            $table->decimal('kohlenhydrate_gesamt_g')->nullable()->unsigned();
+            $table->decimal('kohlenhydrate_mono_di_g')->nullable()->unsigned();
+            $table->decimal('kohlenhydrate_poly_g')->nullable()->unsigned();
+            $table->decimal('kohlenhydrate_ball_g')->nullable()->unsigned();
+            $table->decimal('kohlenhydrate_ball_g')->nullable()->unsigned();
+
+            $table->decimal('kohlenhydrate_nacl_mg')->nullable()->unsigned();
+            $table->decimal('alkohol_g')->nullable()->unsigned();
+            $table->decimal('wasser_g')->nullable()->unsigned();
+            $table->decimal('portion_g')->nullable()->unsigned();
+
+            // Mineralstoffe
+            $table->decimal('min_na_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_k_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_ca_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_mg_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_p_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_fe_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_zn_mg', 8, 4)->nullable()->unsigned();
 
             // Vitamine
-            $table->decimal('vitamin_c_mg', 8, 4)->nullable()->unsigned();
-            $table->decimal('vitamin_a_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_ret_µg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_caro_µg', 8, 4)->nullable()->unsigned();
             $table->decimal('vitamin_e_mg', 8, 4)->nullable()->unsigned();
             $table->decimal('vitamin_b1_mg', 8, 4)->nullable()->unsigned();
             $table->decimal('vitamin_b2_mg', 8, 4)->nullable()->unsigned();
             $table->decimal('vitamin_b6_mg', 8, 4)->nullable()->unsigned();
-            $table->decimal('vitamin_b12_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_b12_µg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_fol_µg', 8, 4)->nullable()->unsigned();
+            $table->decimal('vitamin_c_mg', 8, 4)->nullable()->unsigned();
 
-            // Mineralstoffe
-            $table->decimal('min_natrium_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_eisen_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_zink_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_magnesium_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_chlorid_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_mangan_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_kalium_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_kalzium_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_phosphor_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_kupfer_g', 8, 4)->nullable()->unsigned();
-            $table->decimal('min_jod_g', 8, 4)->nullable()->unsigned();
 
             $table->unique(['nutriable_type', 'nutriable_id'], 'unique_nutriable');
         });
