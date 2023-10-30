@@ -80,7 +80,6 @@ return new class extends Migration {
             $table->decimal('kohlenhydrate_mono_di_g')->nullable()->unsigned();
             $table->decimal('kohlenhydrate_poly_g')->nullable()->unsigned();
             $table->decimal('kohlenhydrate_ball_g')->nullable()->unsigned();
-            $table->decimal('kohlenhydrate_ball_g')->nullable()->unsigned();
 
             $table->decimal('kohlenhydrate_nacl_mg')->nullable()->unsigned();
             $table->decimal('alkohol_g')->nullable()->unsigned();
@@ -88,7 +87,7 @@ return new class extends Migration {
             $table->decimal('portion_g')->nullable()->unsigned();
 
             // Mineralstoffe
-            $table->decimal('min_na_mg', 8, 4)->nullable()->unsigned();
+            $table->decimal('min_na_mg', 12, 4)->nullable()->unsigned();
             $table->decimal('min_k_mg', 8, 4)->nullable()->unsigned();
             $table->decimal('min_ca_mg', 8, 4)->nullable()->unsigned();
             $table->decimal('min_mg_mg', 8, 4)->nullable()->unsigned();
